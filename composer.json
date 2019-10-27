@@ -1,0 +1,39 @@
+{
+    "name": "sashalenz/nova-activitylog",
+    "description": "A Laravel Nova Activity Resource tool.",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "homepage": "https://github.com/sashalenz/nova-activitylog",
+    "authors": [
+        {
+            "name": "Aleksandr Petrovskyi",
+            "email": "sashalenz@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "laravel/nova": "^2.0",
+        "spatie/laravel-activitylog": "^3.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sashalenz\\NovaActivitylog\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sashalenz\\NovaActivitylog\\ToolServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
