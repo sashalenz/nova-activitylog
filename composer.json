@@ -14,6 +14,11 @@
             "name": "Aleksandr Petrovskyi",
             "email": "sashalenz@gmail.com",
             "role": "Developer"
+        },
+        {
+            "name": "palPalani",
+            "email": "palani.p@gmail.com",
+            "role": "Developer"
         }
     ],
     "license": "MIT",
