@@ -8,38 +8,7 @@ use Laravel\Nova\Filters\DateFilter;
 
 class ActivityDate extends DateFilter
 {
-    /**
-     * The filter's component.
-     *
-     * @var string
-     */
-    public $component = 'select-filter';
-
-    protected string $column;
-
-    /**
-     * Create a new filter instance.
-     *
-     * @param string $column
-     *
-     * @return void
-     */
-    public function __construct($column)
-    {
-        switch ($column) {
-            case 'created_at':
-                $this->name = 'Created';
-
-                break;
-            case 'published_at':
-                $this->name = 'Published';
-
-                break;
-            default:
-        }
-
-        $this->column = $column;
-    }
+    public $name = 'Activity date range';
 
     /**
      * Apply the filter to the given query.
@@ -51,27 +20,9 @@ class ActivityDate extends DateFilter
      */
     public function apply(Request $request, $query, $value)
     {
-        return $query->where($this->column, '=', Carbon::parse($value));
-    }
+        $from = Carbon::parse($value[0])->startOfDay();
+        $to = Carbon::parse($value[1])->endOfDay();
 
-    /**
-     * Get the filter's available options.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-    public function options(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the key for the filter.
-     *
-     * @return string
-     */
-    public function key()
-    {
-        return 'timestamp_' . $this->column;
+        return $query->whereBetween('created_at', [$from, $to]);
     }
 }
