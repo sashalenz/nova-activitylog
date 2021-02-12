@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Resource as NovaResource;
 use Sashalenz\NovaActivitylog\Filters\ActivityType;
-use Sashalenz\NovaActivitylog\Filters\ActiviyDate;
+use Sashalenz\NovaActivitylog\Filters\ActivityDate;
 use Sashalenz\NovaActivitylog\Filters\CauserType;
 use Sashalenz\NovaActivitylog\Filters\SubjectType;
 use Spatie\Activitylog\ActivitylogServiceProvider;
@@ -122,7 +122,7 @@ class Activity extends NovaResource
             new ActivityType,
             new CauserType,
             new SubjectType,
-            new ActiviyDate,
+            new ActivityDate,
         ];
     }
 
