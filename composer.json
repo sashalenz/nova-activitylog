@@ -3,7 +3,10 @@
     "description": "A Laravel Nova Activity Resource tool.",
     "keywords": [
         "laravel",
-        "nova"
+        "nova",
+        "nova-tools",
+        "log",
+        "activity-log"
     ],
     "homepage": "https://github.com/sashalenz/nova-activitylog",
     "authors": [
@@ -17,11 +20,22 @@
     "require": {
         "php": ">=7.1.0",
         "laravel/nova": "^2.0 || ^3.0",
-        "spatie/laravel-activitylog": "^3.9"
+        "spatie/laravel-activitylog": "^3.9",
+        "illuminate/contracts": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.3",
+        "vimeo/psalm": "^4.4"
     },
     "autoload": {
         "psr-4": {
             "Sashalenz\\NovaActivitylog\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sashalenz\\NovaActivitylog\\Tests\\": "tests"
         }
     },
     "extra": {
@@ -30,6 +44,11 @@
                 "Sashalenz\\NovaActivitylog\\ToolServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
     "config": {
         "sort-packages": true
