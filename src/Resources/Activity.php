@@ -122,7 +122,7 @@ class Activity extends NovaResource
             new ActivityType,
             new CauserType,
             new SubjectType,
-            new ActivityDate,
+            new ActivityDate('created_at'),
         ];
     }
 
