@@ -2,11 +2,11 @@
 
 namespace Sashalenz\NovaActivitylog\Filters;
 
+use Ampeco\Filters\DateRangeFilter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Laravel\Nova\Filters\DateFilter;
 
-class ActivityDate extends DateFilter
+class ActivityDate extends DateRangeFilter
 {
     public $name = 'Activity date range';
 
