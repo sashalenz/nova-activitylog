@@ -64,7 +64,7 @@ class Activity extends NovaResource
             MorphTo::make(__('nova-activitylog::field.causer'), 'causer'),
 
             MorphTo::make(__('nova-activitylog::field.subject'), 'subject'),
-            
+
             Text::make(__('nova-activitylog::field.description'), function () {
                 return __('nova-activitylog::display.'.$this->description);
             })->canSee(function () {

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Laravel\Nova\Filters\DateFilter;
 
-class ActivityType extends DateFilter
+class ActivityDate extends DateFilter
 {
     /**
      * The filter's component.
