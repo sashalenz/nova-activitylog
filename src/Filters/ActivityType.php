@@ -47,7 +47,7 @@ class ActivityType extends Filter
             })
             ->mapWithKeys(function ($row) {
                 return [
-                    __('nova-activitylog::display.'.$row->description) => $row->description
+                    __('nova-activitylog::display.'.$row->description) => $row->description,
                 ];
             })
             ->toArray();

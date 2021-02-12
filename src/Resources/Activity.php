@@ -23,7 +23,7 @@ class Activity extends NovaResource
     public static $title = 'id';
 
     public static $search = [
-        'description', 'subject_id', 'subject_type', 'causer_id', 'properties', 'request'
+        'description', 'subject_id', 'subject_type', 'causer_id', 'properties', 'request',
     ];
 
     public static $globallySearchable = false;
@@ -43,6 +43,7 @@ class Activity extends NovaResource
     public static function newModel()
     {
         self::$model = ActivitylogServiceProvider::determineActivityModel();
+
         return new self::$model();
     }
 
@@ -75,15 +76,16 @@ class Activity extends NovaResource
                     return $this->properties->has('attributes');
                 }),
             KeyValue::make(__('nova-activitylog::field.request'), 'request')
-                ->displayUsing(function($value){
+                ->displayUsing(function ($value) {
                     return json_decode($value);
                 })
                 ->onlyOnDetail()
-                ->showOnDetail(function() {
+                ->showOnDetail(function () {
                     return config('nova-activitylog.store-request', null) && isset($this->request);
                 }),
         ];
     }
+
     /**
      * Get the cards available for the request.
      *
@@ -95,6 +97,7 @@ class Activity extends NovaResource
     {
         return [];
     }
+
     /**
      * Get the filters available for the resource.
      *
@@ -107,9 +110,10 @@ class Activity extends NovaResource
         return [
             new ActivityType,
             new CauserType,
-            new SubjectType
+            new SubjectType,
         ];
     }
+
     /**
      * Get the lenses available for the resource.
      *
@@ -121,6 +125,7 @@ class Activity extends NovaResource
     {
         return [];
     }
+
     /**
      * Get the actions available for the resource.
      *

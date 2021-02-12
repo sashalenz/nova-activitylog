@@ -5,7 +5,6 @@ namespace Sashalenz\NovaActivitylog\Filters;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Laravel\Nova\Filters\DateFilter;
-use Spatie\Activitylog\Models\Activity;
 
 class ActivityType extends DateFilter
 {

@@ -43,9 +43,10 @@ class CauserType extends Filter
             ->mapWithKeys(function ($row) {
                 if ($morphResource = Nova::resourceForModel(Relation::getMorphedModel($row->causer_type) ?? $row->causer_type)) {
                     return [
-                        $morphResource::label() => $row->causer_type
+                        $morphResource::label() => $row->causer_type,
                     ];
                 }
+
                 return [];
             })
             ->toArray();

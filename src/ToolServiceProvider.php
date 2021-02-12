@@ -3,9 +3,9 @@
 namespace Sashalenz\NovaActivitylog;
 
 use Gate;
-use Laravel\Nova\Nova;
-use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Nova;
 use Sashalenz\NovaActivitylog\Policies\ActivityPolicy;
 use Sashalenz\NovaActivitylog\Resources\Activity;
 use Spatie\Activitylog\ActivitylogServiceProvider;

@@ -44,9 +44,10 @@ class SubjectType extends Filter
             ->mapWithKeys(function ($row) {
                 if ($morphResource = Nova::resourceForModel(Relation::getMorphedModel($row->subject_type) ?? $row->subject_type)) {
                     return [
-                        $morphResource::label() => $row->subject_type
+                        $morphResource::label() => $row->subject_type,
                     ];
                 }
+
                 return [];
             })
             ->toArray();
