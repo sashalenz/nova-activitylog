@@ -9,11 +9,10 @@ use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Resource as NovaResource;
-
 use Sashalenz\NovaActivitylog\Filters\ActivityType;
 use Sashalenz\NovaActivitylog\Filters\CauserType;
-
 use Sashalenz\NovaActivitylog\Filters\SubjectType;
+use Sashalenz\NovaActivitylog\Filters\ActiviyDate;
 use Spatie\Activitylog\ActivitylogServiceProvider;
 
 class Activity extends NovaResource
@@ -23,7 +22,12 @@ class Activity extends NovaResource
     public static $title = 'id';
 
     public static $search = [
-        'description', 'subject_id', 'subject_type', 'causer_id', 'properties', 'request',
+        'description',
+        'subject_id',
+        'subject_type',
+        'causer_id',
+        'properties',
+        'request',
     ];
 
     public static $globallySearchable = false;
@@ -56,25 +60,32 @@ class Activity extends NovaResource
         return [
             ID::make()
                 ->sortable(),
+
             MorphTo::make(__('nova-activitylog::field.causer'), 'causer'),
+
             MorphTo::make(__('nova-activitylog::field.subject'), 'subject'),
+            
             Text::make(__('nova-activitylog::field.description'), function () {
                 return __('nova-activitylog::display.'.$this->description);
             })->canSee(function () {
                 return is_array(__('nova-activitylog::display'))
                     && array_key_exists($this->description, __('nova-activitylog::display'));
             }),
+
             DateTime::make(__('nova-activitylog::field.created_at'), 'created_at'),
+
             KeyValue::make(__('nova-activitylog::field.old_values'), 'properties->old')
                 ->onlyOnDetail()
                 ->showOnDetail(function () {
                     return $this->properties->has('old');
                 }),
+
             KeyValue::make(__('nova-activitylog::field.new_values'), 'properties->attributes')
                 ->onlyOnDetail()
                 ->showOnDetail(function () {
                     return $this->properties->has('attributes');
                 }),
+
             KeyValue::make(__('nova-activitylog::field.request'), 'request')
                 ->displayUsing(function ($value) {
                     return json_decode($value);
@@ -111,6 +122,7 @@ class Activity extends NovaResource
             new ActivityType,
             new CauserType,
             new SubjectType,
+            new ActiviyDate,
         ];
     }
 
