@@ -34,11 +34,12 @@ class ToolServiceProvider extends ServiceProvider
             __DIR__.'/../config/nova-activitylog.php' => config_path('nova-activitylog.php'),
         ], 'config');
 
-        $this->app->booted(function () {
+        $this->app->booted(function ($app) {
             Nova::resources([
                 Activity::class,
             ]);
-            $this->routes();
+            
+            $app->routes();
         });
 
         Gate::policy(ActivitylogServiceProvider::determineActivityModel(), ActivityPolicy::class);
