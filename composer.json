@@ -25,7 +25,6 @@
     "require": {
         "php": ">=7.1.0",
         "ampeco/nova-date-range-filter": "^0.1",
-        "laravel/nova": "^3.0",
         "spatie/laravel-activitylog": "^4.0",
         "illuminate/contracts": "^8.0"
     },
