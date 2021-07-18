@@ -119,9 +119,9 @@ class Activity extends NovaResource
     public function filters(Request $request)
     {
         return [
-            new ActivityType,
-            new CauserType,
-            new SubjectType,
+            new ActivityType(),
+            new CauserType(),
+            new SubjectType(),
             new ActivityDate('created_at'),
         ];
     }
