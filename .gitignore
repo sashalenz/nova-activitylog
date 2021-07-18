@@ -8,7 +8,6 @@ phpunit.xml
 .phpunit.result.cache
 .DS_Store
 Thumbs.db
-.php-cs-fixer.dist.php
 .php-cs-fixer.cache
 build
 coverage
