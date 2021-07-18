@@ -38,7 +38,6 @@ class ToolServiceProvider extends ServiceProvider
             Nova::resources([
                 Activity::class,
             ]);
-            $this->routes();
         });
 
         Gate::policy(ActivitylogServiceProvider::determineActivityModel(), ActivityPolicy::class);
@@ -59,18 +58,6 @@ class ToolServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../migrations/add_request_field_to_activity_log_table.php.stub' => database_path("/migrations/{$timestamp}_add_request_field_to_activity_log_table.php"),
             ], 'migrations');
-        }
-    }
-
-    /**
-     * Register the tool's routes.
-     *
-     * @return void
-     */
-    protected function routes()
-    {
-        if ($this->app->routesAreCached()) {
-            return;
         }
     }
 
