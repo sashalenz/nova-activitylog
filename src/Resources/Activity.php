@@ -71,14 +71,15 @@ class Activity extends NovaResource
 
             MorphTo::make(__('nova-activitylog::field.subject'), 'subject'),
 
+            Text::make(__('nova-activitylog::field.description'), 'description'),
+            /*
             Text::make(__('nova-activitylog::field.description'), function () {
                 return __('nova-activitylog::display.'.$this->description);
-            })
-                /*
-                ->canSee(function () {
+            })->canSee(function () {
                 return is_array(__('nova-activitylog::display'))
                     && array_key_exists($this->description, __('nova-activitylog::display'));
-            })*/,
+            }),
+            */
 
             Text::make('UUID', 'batch_uuid'),
 
