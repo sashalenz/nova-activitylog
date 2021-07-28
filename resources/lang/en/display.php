@@ -4,5 +4,6 @@ return [
     'created' => 'Created',
     'updated' => 'Updated',
     'deleted' => 'Deleted',
-    'restored' => 'Restored'
+    'restored' => 'Restored',
+    'description' => 'Description',
 ];

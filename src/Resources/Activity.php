@@ -3,6 +3,7 @@
 namespace Sashalenz\NovaActivitylog\Resources;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\KeyValue;
@@ -61,16 +62,25 @@ class Activity extends NovaResource
             ID::make()
                 ->sortable(),
 
+            Badge::make('Type', 'log_name')->map([
+                'default' => 'success',
+                'system' => 'danger',
+            ]),
+
             MorphTo::make(__('nova-activitylog::field.causer'), 'causer'),
 
             MorphTo::make(__('nova-activitylog::field.subject'), 'subject'),
 
             Text::make(__('nova-activitylog::field.description'), function () {
                 return __('nova-activitylog::display.'.$this->description);
-            })->canSee(function () {
+            })
+                /*
+                ->canSee(function () {
                 return is_array(__('nova-activitylog::display'))
                     && array_key_exists($this->description, __('nova-activitylog::display'));
-            }),
+            })*/,
+
+            Text::make('UUID', 'batch_uuid'),
 
             DateTime::make(__('nova-activitylog::field.created_at'), 'created_at'),
 
@@ -122,7 +132,7 @@ class Activity extends NovaResource
             new ActivityType(),
             new CauserType(),
             new SubjectType(),
-            new ActivityDate('created_at'),
+            new ActivityDate(),
         ];
     }
 
