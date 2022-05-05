@@ -32,7 +32,7 @@ class ToolServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/nova-activitylog.php' => config_path('nova-activitylog.php'),
-        ], 'config');
+        ], 'nova-activitylog-config');
 
         $this->app->booted(function () {
             Nova::resources([
@@ -57,7 +57,7 @@ class ToolServiceProvider extends ServiceProvider
             $timestamp = date('Y_m_d_His', time());
             $this->publishes([
                 __DIR__.'/../migrations/add_request_field_to_activity_log_table.php.stub' => database_path("/migrations/{$timestamp}_add_request_field_to_activity_log_table.php"),
-            ], 'migrations');
+            ], 'nova-activitylog-migrations');
         }
     }
 
