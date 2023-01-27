@@ -2,8 +2,8 @@
 Laravel Nova tool for a monitoring the users' activity based on `spatie/laravel-activitylog`. 
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/palpalani/nova-activitylog.svg?style=flat-square)](https://packagist.org/packages/palpalani/nova-activitylog)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/palpalani/nova-activitylog/run-tests?label=tests)](https://github.com/palpalani/nova-activitylog/actions?query=workflow%3ATests+branch%3Adevelop)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/palpalani/nova-activitylog/Check%20&%20fix%20styling?label=code%20style)](https://github.com/palpalani/nova-activitylog/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Adevelop)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/palpalani/nova-activitylog/run-tests.yml?branch=master&label=tests&style=flat-square)](https://github.com/palpalani/nova-activitylog/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/palpalani/nova-activitylog/fix-php-code-style-issues.yml?branch=master&label=code%20style&style=flat-square)](https://github.com/palpalani/nova-activitylog/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/palpalani/nova-activitylog.svg?style=flat-square)](https://packagist.org/packages/palpalani/nova-activitylog)
 
 ## Requirements
